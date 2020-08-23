@@ -1,0 +1,11 @@
+<div class='todos-edit-container'>
+    <div class="todos-list">
+        <div class="todo-items" *ngFor="let item of todos">
+            <div class="content" *ngIf="!item.isEdit" [ngClass]="{'stripe':item.isDone}">
+                {{item.content}}
+            </div>
+            <input *ngIf="item.isEdit" [(ngModel)]="item.content" (keyup.enter)="editDone(item)"/>
+            <div class="edit" (click)="toggleTodoEdit(item)">✏️</div>
+        </div>
+    </div>
+</div>

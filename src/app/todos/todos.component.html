@@ -1,0 +1,20 @@
+<div class="todos-container">
+    <div class="header">
+        <div class="title">
+            Todos
+        </div>
+        <button routerLink="/todos/edit">Edit</button>
+    </div>
+    <div class="body">
+        <div class="input-container">
+            <input class="todo-input" [(ngModel)]="todo" (keyup.enter)="addTodo(todo)">
+        </div>
+        <div class="todos-list">
+            <div class="todo-items" *ngFor="let item of todos">
+                <div class="content" [ngClass]="{'stripe':item.isDone}" (click)="toggleTodo(item)">
+                    {{item.content}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
